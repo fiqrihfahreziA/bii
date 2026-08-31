@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💖 Untuk Qolbii Sayang 💖</title>
+    <style>
+        /* ===== CSS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe6f0, #ffb3c6);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(255, 80, 120, 0.3);
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #a02c5a;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #c44a7a;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .avatar {
+            font-size: 80px;
+            margin: 10px 0 15px;
+            display: block;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.2); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.2); }
+            70% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .message-box {
+            background: #fff0f5;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 6px solid #ff6b9d;
+            box-shadow: inset 0 2px 8px rgba(255, 100, 150, 0.1);
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #pesanCinta {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #6b2a44;
+            line-height: 1.6;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        /* Efek kursor berkedip untuk typing */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 0.8s step-end infinite;
+            color: #ff6b9d;
+            font-weight: 300;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 20px 0 10px;
+        }
+
+        .btn {
+            background: white;
+            border: 2px solid #ff6b9d;
+            color: #a02c5a;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 80, 130, 0.2);
+            flex: 1 1 auto;
+            min-width: 120px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: #ff6b9d;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 80, 130, 0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        .btn-primary {
+            background: #ff6b9d;
+            color: white;
+            border-color: #ff6b9d;
+        }
+
+        .btn-primary:hover {
+            background: #e85585;
+            border-color: #e85585;
+        }
+
+        .btn-counter {
+            background: #ffe2eb;
+            border-color: #ffaac2;
+            color: #7a3b52;
+            cursor: default;
+            flex: 0 1 auto;
+        }
+
+        .btn-counter:hover {
+            transform: none;
+            background: #ffe2eb;
+            color: #7a3b52;
+            box-shadow: 0 4px 12px rgba(255, 80, 130, 0.2);
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #a05a78;
+            font-size: 0.9rem;
+            border-top: 1px dashed #ffb6c9;
+            padding-top: 18px;
+            opacity: 0.8;
+        }
+
+        .footer span {
+            font-weight: 700;
+            color: #d43b6b;
+        }
+
+        /* floating hearts (dekorasi) */
+        .floating-heart {
+            position: fixed;
+            font-size: 24px;
+            pointer-events: none;
+            animation: floatUp 6s linear forwards;
+            z-index: 999;
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
+            100% { opacity: 0; transform: translateY(-400px) rotate(40deg) scale(0.4); }
+        }
+
+        /* responsive */
+        @media (max-width: 480px) {
+            .card { padding: 30px 18px; }
+            h1 { font-size: 1.7rem; }
+            #pesanCinta { font-size: 1.1rem; min-height: 70px; }
+            .btn { padding: 10px 16px; font-size: 0.9rem; min-width: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HTML ===== -->
+    <div class="card">
+        <span class="avatar">🥰</span>
+        <h1>Hai, Qolbii Sayang!</h1>
+        <p class="subtitle">✨ Untuk orang yang paling spesial ✨</p>
+
+        <div class="message-box">
+            <div id="pesanCinta"></div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn" id="btnUbahPesan">❤️ Pesan buat Kamu</button>
+            <button class="btn btn-primary" id="btnKirimPeluk">🤗 Peluk Aku</button>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-counter" id="btnCounter">💗 Diklik: <span id="countDisplay">0</span></button>
+        </div>
+
+        <div class="footer">
+            <span>💖</span> Untuk Qolbii sayang yang selalu di hati <span>💖</span>
+        </div>
+    </div>
+
+    <script>
+        // ===== JAVASCRIPT =====
+
+        // Daftar pesan DIURUTKAN dari Qolbii sayang ke bawah
+        const daftarPesan = [
+            "Hai Qolbii sayanggg 💕",
+            "Hai Pacarkuu 💕",
+            "Aku kangen kamu, tau! 😘",
+            "Kamu sehat sehat yaa disanaaa 💕",
+            "Cuma kamu yang bikin aku deg-degan 💓",
+            "Kamu itu seindah senja di mataku 🌅",
+            "Jangan pernah lelah untuk aku, ya 🥺",
+            "Aku nggak butuh sempurna, aku butuh kamu ❤️",
+            "Setiap detik tanpamu terasa hampa 🥲",
+            "Kamu adalah rumah yang selalu aku tuju 🏠",
+            "Bolehkah aku jadi alasan kamu tersenyum? 😊",
+            "Aku jatuh cinta, dan aku nggak mau bangun 💤",
+            "Kamu itu seperti bintang, terang dan indah ✨",
+            "Maaf kalau aku terlalu sayang sama kamu 🤭",
+            "Hari-hariku lebih berwarna karena kamu 🎨",
+            "Kamu itu pelangi di hari hujan 🌈",
+            "Aku cuma mau kamu, selamanya 🤍"
+        ];
+
+        // Elemen
+        const pesanEl = document.getElementById('pesanCinta');
+        const btnUbah = document.getElementById('btnUbahPesan');
+        const btnPeluk = document.getElementById('btnKirimPeluk');
+        const countSpan = document.getElementById('countDisplay');
+
+        // State
+        let hitungCinta = 0;
+        let indeksPesanSaatIni = 0; // Untuk tracking urutan pesan
+        let isTyping = false;
+
+        // ===== FUNGSI TYPING EFFECT =====
+        function ketikPesan(text, callback) {
+            if (isTyping) return;
+            isTyping = true;
+            pesanEl.textContent = '';
+            pesanEl.classList.add('typing-cursor');
+            
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    pesanEl.textContent += text[i];
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    pesanEl.classList.remove('typing-cursor');
+                    isTyping = false;
+                    if (callback) callback();
+                }
+            }, 50); // Kecepatan ngetik (50ms per huruf)
+        }
+
+        // ===== TAMPILKAN PESAN BERURUTAN =====
+        function tampilPesanBerurutan() {
+            // Ambil pesan sesuai urutan
+            const pesan = daftarPesan[indeksPesanSaatIni];
+            
+            // Typing effect
+            ketikPesan(pesan, () => {
+                // Setelah selesai, simpan indeks untuk next
+                // Tidak perlu diubah di sini, karena diubah di tombol
+            });
+
+            // Update indeks untuk next (cyclic)
+            indeksPesanSaatIni = (indeksPesanSaatIni + 1) % daftarPesan.length;
+        }
+
+        // ===== FUNGSI UNTUK TOMBOL UBAH PESAN =====
+        function ubahPesan() {
+            if (isTyping) return; // Jangan ganggu kalau sedang ngetik
+            tampilPesanBerurutan();
+        }
+
+        // ===== KIRIM PELUK =====
+        function kirimPeluk() {
+            if (isTyping) return;
+
+            // Tambah counter
+            hitungCinta++;
+            countSpan.textContent = hitungCinta;
+
+            // Tampilkan pesan peluk dengan efek typing
+            const pesanPeluk = "🤗 Kamu dapat peluk hangat dari aku! 💖";
+            ketikPesan(pesanPeluk, () => {
+                // Kembalikan ke pesan urutan berikutnya setelah 2 detik
+                setTimeout(() => {
+                    // Ambil pesan berikutnya dari daftar
+                    const pesanBerikutnya = daftarPesan[indeksPesanSaatIni];
+                    ketikPesan(pesanBerikutnya, () => {
+                        indeksPesanSaatIni = (indeksPesanSaatIni + 1) % daftarPesan.length;
+                    });
+                }, 2000);
+            });
+
+            // Efek floating heart
+            for (let i = 0; i < 6; i++) {
+                buatFloatingHeart();
+            }
+        }
+
+        // ===== FLOATING HEART =====
+        function buatFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.textContent = ['❤️', '💖', '💗', '💕', '🥰', '😘'][Math.floor(Math.random() * 6)];
+            heart.style.left = Math.random() * 90 + '%';
+            heart.style.top = Math.random() * 40 + 30 + '%';
+            heart.style.fontSize = (Math.random() * 20 + 18) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        // ===== EVENT LISTENER =====
+        btnUbah.addEventListener('click', ubahPesan);
+        btnPeluk.addEventListener('click', kirimPeluk);
+
+        // ===== INISIALISASI =====
+        window.addEventListener('load', () => {
+            // Tampilkan pesan pertama dengan efek typing
+            const pesanPertama = daftarPesan[0];
+            ketikPesan(pesanPertama, () => {
+                indeksPesanSaatIni = 1; // Next indeks = 1
+            });
+            countSpan.textContent = hitungCinta;
+        });
+
+        // Efek klik card
+        document.querySelector('.card').addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') return;
+            this.style.borderColor = '#ff85aa';
+            setTimeout(() => {
+                this.style.borderColor = 'rgba(255,255,255,0.5)';
+            }, 300);
+        });
+
+        console.log('💖 Website untuk Qolbii sayang siap! 💖');
+        console.log('Pesan sudah diurutkan dari Qolbii sayang ke bawah 😉');
+    </script>
+</body>
+</html>
